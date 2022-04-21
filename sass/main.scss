@@ -1,0 +1,714 @@
+@import '_colors';
+@import '_animation';
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+html {
+	scroll-padding-top: 82px;
+	overflow-x: hidden;
+}
+body {
+	position: relative;
+	font-family: 'Rajdhani', sans-serif;
+	background: linear-gradient(to bottom, rgba(255, 255, 255, 0.15) 0%, rgba(0, 0, 0, 0.15) 100%),
+		radial-gradient(at top center, rgba(255, 255, 255, 0.4) 0%, rgba(0, 0, 0, 0.4) 120%) #989898;
+	background-blend-mode: multiply, multiply;
+	overflow-x: hidden;
+}
+h2 {
+	text-align: center;
+	text-transform: uppercase;
+}
+.underline {
+	margin: 0 auto 40px;
+	width: 120px;
+	height: 2px;
+	background-color: $main-color;
+}
+
+.gold-text {
+	color: $main-color;
+}
+.shadow-bg {
+	background-color: rgba(0, 0, 0, 0.8);
+}
+
+nav {
+	text-transform: uppercase;
+	background-color: rgba(0, 0, 0, 0.4);
+	z-index: 1;
+	a {
+		color: $white;
+		font-weight: bold;
+		.fa-angle-double-up {
+			color: $white;
+			transition: color 0.8s 0.5s;
+		}
+	}
+	.navbar-brand {
+		color: $white;
+		text-shadow: 1px 1px 3px $black;
+		transition: color 0.8s;
+	}
+	.nav-link {
+		color: $white;
+		text-shadow: 1px 1px 3px $black;
+		transition: color 0.3s;
+	}
+	.fa-bars {
+		padding: 10px;
+		color: $white;
+	}
+	.navbar-brand:hover {
+		color: $main-color;
+		.fa-angle-double-up {
+			color: $main-color;
+		}
+	}
+	.nav-link:hover {
+		color: $main-color;
+	}
+	.active {
+		color: $main-color;
+	}
+	.fa-angle-double-up:hover {
+		color: $main-color;
+	}
+}
+
+header {
+	color: $white;
+	text-shadow: $black 1px 1px 2px;
+	h1 {
+		font-size: 40px;
+		text-transform: uppercase;
+	}
+	p {
+		font-size: 20px;
+	}
+	.hero-img {
+		position: relative;
+		height: 100vh;
+		background-image: url(/img/header-img-small.jpg);
+		background-size: cover;
+		background-position: center;
+		background-attachment: fixed;
+		z-index: 0;
+	}
+	.hero-shadow {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.6);
+		z-index: -10;
+	}
+	.hero-text {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		flex-direction: column;
+		height: 100%;
+		padding: 10px;
+		z-index: 5;
+	}
+	.recess {
+		position: relative;
+		margin: 20px;
+		padding: 20px 30px;
+		text-transform: uppercase;
+		background: none;
+		border: none;
+		text-decoration: none;
+		color: $white;
+		text-shadow: $black 1px 1px 2px;
+		border-radius: 8px;
+		font-size: 28px;
+		z-index: 2;
+		cursor: pointer;
+		transition: box-shadow 0.5s;
+	}
+	.recess:hover {
+		box-shadow: 2px 3px 0 0 $main-color-light, inset 11px 6px 10px rgba(0, 0, 0, 0.4);
+	}
+	.fa-chevron-down {
+		position: absolute;
+		bottom: 20px;
+		font-size: 30px;
+		left: 50%;
+		transform: translate(-50%);
+		color: $white;
+	}
+}
+
+.introduction {
+	font-size: 24px;
+	color: $white;
+	top: 50px;
+	span {
+		color: $main-color;
+	}
+	.introduction-img {
+		position: relative;
+		margin-top: 50px;
+		margin-bottom: 50px;
+		height: 100%;
+		// background-image: url(/img/introduction-img-small.jpg);
+		background-size: cover;
+		background-position: center;
+		background-attachment: fixed;
+		z-index: 1;
+	}
+}
+
+.introduction-hero {
+	justify-content: center;
+	align-items: center;
+	font-size: 24px;
+	color: $white;
+	overflow: hidden;
+
+	.card {
+		position: relative;
+		margin: 20px 80px;
+		width: 450px;
+		height: 700px;
+		perspective: 800px;
+		padding: 0 0;
+		border-radius: 15px;
+	}
+	.img {
+		width: 100%;
+		height: 100%;
+		background-position: center;
+		background-size: cover;
+		border-radius: 15px;
+		transition: 0.8s;
+	}
+	.one {
+		background-image: url(/img/history-img-small.jpg);
+	}
+	.two {
+		background-image: url(/img/definitions-img-small.jpg);
+	}
+	.three {
+		background-image: url(/img/soldier-img-small.jpg);
+	}
+	.text {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		left: 0;
+		padding: 30px;
+		border-radius: 15px;
+		text-align: justify;
+		color: $black;
+		background-color: #fbb034;
+		background-image: linear-gradient(315deg, #fbb034 0%, #ffdd00 74%);
+		opacity: 0;
+		transition: 0.8s;
+	}
+
+	h3 {
+		text-align: center;
+		margin-top: 30px;
+		margin-bottom: 60px;
+	}
+	.text-one,
+	.text-two,
+	.text-three {
+		transform: rotateY(180deg);
+	}
+	.card:hover .text {
+		transform: rotate(0);
+		opacity: 1;
+	}
+	.card:hover .one {
+		transform: rotateY(-180deg);
+		opacity: 0;
+	}
+	.card:hover .two {
+		transform: rotateY(-180deg);
+		opacity: 0;
+	}
+	.card:hover .three {
+		transform: rotateY(-180deg);
+		opacity: 0;
+	}
+
+	.introduction-img {
+		position: relative;
+		// height: 100vh;
+		background-image: url(/img/introduction-img-small.jpg);
+		background-size: cover;
+		background-position: center;
+		background-attachment: fixed;
+		z-index: 0;
+	}
+	.introduction-shadow {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.8);
+		z-index: -10;
+	}
+}
+
+.history {
+	justify-content: center;
+	align-items: center;
+	margin-top: 50px;
+	font-size: 18px;
+	color: $white;
+	overflow: hidden;
+	.card {
+		position: relative;
+		display: block;
+		padding: 0 0;
+	}
+	.history-img {
+		width: 100%;
+		height: 100%;
+		// padding: 20px 20px;
+
+		background-position: center;
+		background-size: cover;
+		border-radius: 15px;
+		transition: transform 0.3s 0.1s;
+	}
+	.history-text {
+		text-align: justify;
+		overflow-y: auto;
+		height: 450px;
+	}
+	.history-img:hover {
+		transform: scale(1.04);
+		animation: shadow-drop-bottom 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both;
+	}
+}
+
+.definitions {
+	font-size: 24px;
+	color: $white;
+	justify-content: center;
+	align-items: center;
+	margin-top: 50px;
+	// overflow: hidden;
+	span {
+		color: $main-color;
+	}
+	.accordion,
+	.accordion-item,
+	.accordion-header {
+		font-size: 18px;
+		background: transparent;
+		// border: none;
+		.accordion-button {
+			font-size: 24px;
+			justify-content: center;
+			align-items: center;
+			font-weight: bold;
+			background-color: $main-color;
+			color: $black;
+		}
+		.accordion-body {
+			text-align: justify;
+		}
+	}
+	.definitions-img {
+		position: relative;
+		// height: 100vh;
+		background-image: url(/img/introduction-img-small.jpg);
+		background-size: cover;
+		background-position: center;
+		background-attachment: fixed;
+		z-index: 0;
+	}
+	.definitions-shadow {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.8);
+		z-index: -10;
+	}
+
+	// WERSJA MOBILNA I POPRAWA SEKCJI HISTORIA
+}
+
+.weapon {
+	font-size: 24px;
+	color: $white;
+	justify-content: center;
+	align-items: center;
+	span {
+		color: $main-color;
+	}
+	.container {
+		.row {
+			.text-center {
+				h2 {
+					color: $main-color;
+					margin: 0 60px;
+				}
+			}
+		}
+	}
+	.card {
+		height: 100%;
+		color: $black;
+		// background-color: transparent;
+		.carousel {
+			h5 {
+				color: $main-color;
+				text-shadow: 1px 1px 1px $black;
+			}
+			.carousel-indicators {
+				button {
+					background-color: $main-color;
+				}
+			}
+			.fa {
+				font-size: 34px;
+			}
+		}
+		.card-body {
+			h5 {
+				font-size: 24px;
+				text-align: center;
+				justify-content: center;
+				color: $main-color;
+				text-shadow: 1px 1px 1px $black;
+			}
+			p {
+				text-align: justify;
+			}
+			span {
+				color: $black;
+			}
+		}
+	}
+
+	.weapon-type {
+		.card {
+			position: relative;
+			margin: 20px 20px;
+			width: 580px;
+			height: 450px;
+			perspective: 800px;
+			padding: 0 0;
+			border-radius: 15px;
+		}
+		.img {
+			width: 100%;
+			height: 100%;
+			background-position: center;
+			background-size: cover;
+			border-radius: 15px;
+			transition: 0.8s;
+			filter: sepia(45%);
+		}
+		.one {
+			background-image: url(/img/weapon/revolver-small.jpg);
+		}
+		.two {
+			background-image: url(/img/weapon/pistol-small.jpg);
+		}
+		.three {
+			background-image: url(/img/weapon/machine-gun-small.jpg);
+		}
+		.four {
+			background-image: url(/img/weapon/rifle-small.jpg);
+		}
+		.five {
+			background-image: url(/img/weapon/light-machine-gun-small.jpg);
+		}
+		.six {
+			background-image: url(/img/weapon/shotgun-small.jpg);
+		}
+		.text {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			left: 0;
+			padding: 30px;
+			border-radius: 15px;
+			text-align: justify;
+			color: $black;
+			background-color: #fbb034;
+			background-image: linear-gradient(315deg, #fbb034 0%, #ffdd00 74%);
+			opacity: 0;
+			transition: 0.8s;
+			overflow: auto;
+		}
+		h2 {
+			color: $main-color;
+		}
+
+		h3 {
+			text-align: center;
+			margin-top: 30px;
+			margin-bottom: 60px;
+		}
+		.text-one,
+		.text-two,
+		.text-three {
+			transform: rotateX(180deg);
+		}
+		.card:hover .text {
+			transform: rotate(0);
+			opacity: 1;
+		}
+		.card:hover .one {
+			transform: rotateX(-180deg);
+			opacity: 0;
+		}
+		.card:hover .two {
+			transform: rotateX(-180deg);
+			opacity: 0;
+		}
+		.card:hover .three {
+			transform: rotateX(-180deg);
+			opacity: 0;
+		}
+		.card:hover .four {
+			transform: rotateX(-180deg);
+			opacity: 0;
+		}
+		.card:hover .five {
+			transform: rotateX(-180deg);
+			opacity: 0;
+		}
+		.card:hover .six {
+			transform: rotateX(-180deg);
+			opacity: 0;
+		}
+		.weapon-type-img {
+			position: relative;
+			// height: 100vh;
+			background-image: url(/img/introduction-img-small.jpg);
+			background-size: cover;
+			background-position: center;
+			background-attachment: fixed;
+			z-index: 0;
+		}
+		.weapon-shadow {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0, 0, 0, 0.6);
+			z-index: -10;
+		}
+	}
+}
+
+.barrel {
+	justify-content: center;
+	align-items: center;
+	// margin-top: 50px;
+	font-size: 18px;
+	// padding: 0 40px;
+	// color: $white;
+	overflow: hidden;
+	.card {
+		position: relative;
+		display: block;
+		border-radius: 15px;
+		background-color: $main-color;
+		margin: 20px 20px;
+
+		.card-body {
+			border: none;
+			border-radius: 15px;
+		}
+	}
+	.barrel-img {
+		width: 100%;
+		height: 100%;
+		background-position: center;
+		background-size: cover;
+		border-radius: 15px;
+		// background-color: $white;
+		transition: transform 0.3s 0.1s;
+	}
+	.barrel-text {
+		font-size: 24px;
+		text-align: justify;
+		overflow-y: auto;
+		height: 450px;
+		padding: 20px;
+		color: $black;
+		span {
+			font-weight: bold;
+		}
+	}
+
+	h2 {
+		// margin-top: 30px;
+		// margin-bottom: 60px;
+		color: $main-color;
+	}
+	.barrel-img:hover {
+		transform: scale(1.04);
+		animation: shadow-drop-bottom 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both;
+	}
+}
+
+.footer {
+	height: 100%;
+	padding: 30px 10px;
+	text-align: center;
+	color: $white;
+	border-top: 1px solid $main-color;
+	background-color: $black;
+}
+
+/* ----------------------------------------------
+ * Generated by Animista on 2022-1-25 19:46:5
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation shadow-drop-bottom
+ * ----------------------------------------
+ */
+@keyframes shadow-drop-bottom {
+	0% {
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+	}
+	100% {
+		box-shadow: 0 12px 20px -12px rgba(0, 0, 0, 0.75);
+	}
+}
+
+@media (min-width: 0px) and (max-width: 768px) {
+	header {
+		h1 {
+			font-size: 30px;
+			text-transform: uppercase;
+		}
+		p {
+			font-size: 14px;
+		}
+	}
+
+	.introduction {
+		font-size: 20px;
+	}
+
+	.introduction-hero {
+		h3 {
+			font-size: 20px;
+			margin-top: 0;
+			margin-bottom: 10px;
+		}
+		.card {
+			margin: 20px 40px;
+			width: 50vw;
+			height: 50vh;
+			.text {
+				padding: 10px;
+				overflow: auto;
+				font-size: 12px;
+			}
+		}
+	}
+
+	.weapon {
+		font-size: 20px;
+		.card {
+			height: 400px;
+			margin-top: 20px;
+			overflow: auto;
+			.card-body {
+				p {
+					padding: 5px;
+				}
+			}
+		}
+	}
+
+	.weapon-type {
+		.card {
+			.text {
+				font-size: 18px;
+				padding: 20px;
+			}
+			h3 {
+				margin-top: 15px;
+				margin-bottom: 30px;
+			}
+		}
+	}
+	.barrel {
+		.barrel-text {
+			font-size: 18px;
+		}
+	}
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+	header {
+		h1 {
+			font-size: 35px;
+			text-transform: uppercase;
+		}
+		p {
+			font-size: 18px;
+		}
+	}
+
+	.weapon {
+		font-size: 22px;
+		.text-center {
+			font-size: 24px;
+		}
+		.card {
+			height: 500px;
+			overflow: auto;
+			.card-body {
+				p {
+					padding: 10px;
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 1200px) {
+	header {
+		.hero-img {
+			background-image: url(/img/header-img-big.jpg);
+		}
+	}
+	.introduction {
+		.introduction-hero {
+			.one {
+				background-image: url(/img/history-img-big.jpg);
+			}
+			.two {
+				background-image: url(/img/definitions-img-big.jpg);
+			}
+			.three {
+				background-image: url(/img/soldier-img-big.jpg);
+			}
+			.introduction-img {
+				background-image: url(/img/introduction-img-big.jpg);
+			}
+		}
+		.history {
+			.history-img-1 {
+				background-image: url(/img/history/bombarda-img-big.jpg);
+			}
+		}
+	}
+}
